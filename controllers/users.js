@@ -59,14 +59,17 @@ const deleteUsers = async(req, res = response) => {
 
    const { id } = req.params
 
+   const uid = req.uid
+
    // Physical Delete
    // const user =  await User.findByIdAndDelete( id )
 
    // Just changing the state
    const user = await User.findByIdAndUpdate( id, { status: false})
+   // const authenticateUser = req.user;
 
    res.json({
-     user,
+     user
    });
 
 }
